@@ -60,7 +60,7 @@ def register():
         print(f"Registration Error: {e}")
         return jsonify({
             "success": False,
-            "message": "An error occurred during registration."
+            "message": f"Registration Error: {str(e)}"
         }), 500
 
 
@@ -106,6 +106,6 @@ def login():
         print(f"Login Error: {e}")
         return jsonify({
             "success": False,
-            "message": "An error occurred during login."
+            "message": f"Login Error: {str(e)}"
         }), 500
 

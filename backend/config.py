@@ -20,6 +20,9 @@ class Config:
     # MongoDB Connection String
     @property
     def MONGODB_URI(self):
+        direct_uri = os.getenv("MONGODB_URI") or os.getenv("MONGO_URI")
+        if direct_uri:
+            return direct_uri
         if self.MONGODB_USER and self.MONGODB_PASSWORD:
             if self.MONGODB_ATLAS:
                 # MongoDB Atlas connection string (uses mongodb+srv://)
