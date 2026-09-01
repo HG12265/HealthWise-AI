@@ -38,6 +38,13 @@ def create_app():
     app.register_blueprint(recommendation_bp)
     app.register_blueprint(chat_bp)
 
+    @app.route("/", methods=["GET", "HEAD"])
+    def root():
+        return jsonify({
+            "success": True,
+            "message": "HealthWise-AI API Backend Service is live and running."
+        }), 200
+
     # Error Handlers
     @app.errorhandler(400)
     def bad_request(error):
