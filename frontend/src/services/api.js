@@ -1,7 +1,7 @@
 // HealthWise-AI Frontend API Service
 // Connects React frontend components to Flask REST API backend running on http://127.0.0.1:5000/api
 
-const rawEnvUrl = (import.meta.env.VITE_API_URL || "http://localhost:5000/api").replace(/\/+$/, "");
+const rawEnvUrl = (import.meta.env.VITE_API_URL || import.meta.env.VITE_API_BASE_URL || "http://localhost:5000/api").replace(/\/+$/, "");
 export const API_BASE_URL = rawEnvUrl.endsWith("/api") ? rawEnvUrl : `${rawEnvUrl}/api`;
 
 /**
