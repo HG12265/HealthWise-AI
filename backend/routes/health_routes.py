@@ -113,7 +113,7 @@ def create_health_record():
 
     try:
         health_records_collection = get_collection("health_records")
-        if not health_records_collection:
+        if health_records_collection is None:
             return jsonify({"success": False, "message": "Database connection error."}), 500
 
         # Create health record document
@@ -168,7 +168,7 @@ def create_health_record():
 def get_user_health(user_id):
     try:
         health_records_collection = get_collection("health_records")
-        if not health_records_collection:
+        if health_records_collection is None:
             return jsonify({
                 "success": False,
                 "message": "Database connection unavailable."

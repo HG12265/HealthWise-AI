@@ -21,7 +21,7 @@ def register():
 
     try:
         users_collection = get_collection("users")
-        if not users_collection:
+        if users_collection is None:
             return jsonify({
                 "success": False,
                 "message": "Database connection error. Please try again later."
@@ -78,7 +78,7 @@ def login():
 
     try:
         users_collection = get_collection("users")
-        if not users_collection:
+        if users_collection is None:
             return jsonify({
                 "success": False,
                 "message": "Database connection error. Please try again later."
